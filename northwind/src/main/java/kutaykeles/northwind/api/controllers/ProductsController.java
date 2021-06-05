@@ -14,9 +14,10 @@ import kutaykeles.northwind.business.abstracts.ProductService;
 import kutaykeles.northwind.core.utilities.results.DataResult;
 import kutaykeles.northwind.core.utilities.results.Result;
 import kutaykeles.northwind.entities.concretes.Product;
+import kutaykeles.northwind.entities.dtos.ProductWithCategoryDto;
 
 @RestController
-@RequestMapping("api/products")
+@RequestMapping("/api/products")
 public class ProductsController {
 	
 	private ProductService productService;
@@ -55,9 +56,15 @@ public class ProductsController {
 	DataResult<List<Product>> getAll(int pageNo, int pageSize){
 		return this.productService.getAll(pageNo,pageSize);
 	}
+	
 	@GetMapping("/getallDesc")
 	public DataResult<List<Product>> getAllSorted(){
 		return this.productService.getAllSorted();
+	}
+	
+	@GetMapping("/getproductwithcategorydetails")
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+		return this.productService.getProductWithCategoryDetails();	
 	}
 	
 }

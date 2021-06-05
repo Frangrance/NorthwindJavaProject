@@ -5,6 +5,7 @@ import java.util.List;
 import kutaykeles.northwind.core.utilities.results.DataResult;
 import kutaykeles.northwind.core.utilities.results.Result;
 import kutaykeles.northwind.entities.concretes.Product;
+import kutaykeles.northwind.entities.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
 	DataResult<List<Product>> getAll();
@@ -28,4 +29,6 @@ public interface ProductService {
 	DataResult<List<Product>> getByProductNameStartsWith(String productName);
 	
 	DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+
+	DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 }
